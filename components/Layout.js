@@ -40,9 +40,9 @@ const Layout = ({ children }) => {
       </Head>
 
       <header>
-        <NavBar />
+        {/* <NavBar /> */}
 
-        <DemoBanner />
+        {/* <DemoBanner /> */}
       </header>
 
       <div className="layout">

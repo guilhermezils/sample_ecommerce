@@ -1,5 +1,6 @@
 import React from "react";
 import Head from "next/head";
+import NavBar from "./NavBar";
 
 const Layout = ({ children }) => {
   return (
@@ -40,7 +41,7 @@ const Layout = ({ children }) => {
       </Head>
 
       <header>
-        {/* <NavBar /> */}
+        <NavBar />
 
         {/* <DemoBanner /> */}
       </header>

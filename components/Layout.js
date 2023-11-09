@@ -1,6 +1,7 @@
 import React from "react";
 import Head from "next/head";
 import NavBar from "./NavBar";
+import DemoBanner from "./DemoBanner";
 
 const Layout = ({ children }) => {
   return (
@@ -43,7 +44,7 @@ const Layout = ({ children }) => {
       <header>
         <NavBar />
 
-        {/* <DemoBanner /> */}
+        <DemoBanner />
       </header>
 
       <div className="layout">

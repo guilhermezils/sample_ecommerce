@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import perfect from "../public/images/perfect.jpg";
+import perfect from "../../public/images/perfect.jpg";
 
 const PerfectBanner = () => (
   <div className="perfect-occasions">

@@ -3,7 +3,7 @@ const Contact = () => {
     <p>Contact Us</p>
     <p>Phone: 555-555-5555</p>
 
-    <form action="/send-data-here" method="POST" className="contact-us-form">
+    <form action="/send-data-here" method="post" className="contact-us-form">
       <p>Fields marked with * are required</p>
       <label htmlFor="fullname">Your full name:</label>
       <div className="contact-field">

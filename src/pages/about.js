@@ -1,4 +1,4 @@
-const About = () => {
+const About = () => (
   <div className="about-us">
     <p>About Macaron Magic</p>
 
@@ -15,7 +15,7 @@ const About = () => {
       delicious, offering a unique taste experience. Try them all and find your
       favorite at Macaron Magic.
     </p>
-  </div>;
-};
+  </div>
+);
 
 export default About;

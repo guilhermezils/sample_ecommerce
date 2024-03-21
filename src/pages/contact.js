@@ -1,5 +1,5 @@
-const Contact = () => {
-  <div className="contact-us">
+const Contact = () => 
+ ( <div className="contact-us">
     <p>Contact Us</p>
     <p>Phone: 555-555-5555</p>
 
@@ -45,7 +45,7 @@ const Contact = () => {
         Submit
       </button>
     </form>
-  </div>;
-};
+  </div>
+)
 
 export default Contact;

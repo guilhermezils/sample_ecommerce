@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import PaymentIcons from "../PaymentIcons";
+import PaymentIcons from "./PaymentIcons";
 // import MiniCart from "../MiniCart";
 // import { useStateContext } from "../../context/StateContext";
 import { AiFillInstagram, AiOutlineTwitter } from "react-icons/ai";

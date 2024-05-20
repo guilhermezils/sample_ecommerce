@@ -18,6 +18,11 @@ const Shop = ({ products }) => (
   </div>
 );
 
+//GROQ query to get all products
+// * => gets everything, _type == "product" => filters to only products, == => qualifier, _type => field to validate against
+
+
+
 export const getServerSideProps = async ({ req, res }) => {
   const query = '*[_type == "product"]';
   const products = await client.fetch(query);

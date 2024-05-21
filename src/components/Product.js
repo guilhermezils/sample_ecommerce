@@ -4,7 +4,7 @@ import React from "react";
 import Link from "next/link";
 import { urlFor } from "../../lib/client";
 
-const Product = ({ product: { image, name, slug, price } }) => {
+const Product = ({ product: { image, name, slug, price } }) => {  // destructuring the product object, instead we could use something like props.product.image, props.product.name, etc. or product.image, product.name, etc.
   return (
     <div>
       <Link href={`/product/${slug.current}`}>

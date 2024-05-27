@@ -21,7 +21,6 @@ const ProductDetails = ({ product, products }) => {
           <div className="image-container">
             <img
               src={urlFor(image && image[index])}
-              alt={name}
               className="product-detail-image"
             />
           </div>
@@ -30,7 +29,6 @@ const ProductDetails = ({ product, products }) => {
               <img
                 key={i}
                 src={urlFor(item)}
-                alt={name}
                 className={
                   i === index ? "small-image selected-image" : "small-image"
                 }
@@ -39,44 +37,114 @@ const ProductDetails = ({ product, products }) => {
             ))}
           </div>
         </div>
+
         <div className="product-detail-desc">
           <h1>{name}</h1>
           <div className="reviews">
             <div>
               <AiFillStar />
+
               <AiFillStar />
+
               <AiFillStar />
+
               <AiFillStar />
+
               <AiOutlineStar />
             </div>
+
             <p>(20)</p>
           </div>
           <h4>Details: </h4>
           <p>{details}</p>
           <p className="price">
-            ${price.toLocaleString("en-US", {
+            $
+            {price.toLocaleString("en-US", {
               maximumFractionDigits: 2,
+
               minimumFractionDigits: 2,
             })}
           </p>
           per box of 12
-          <div className="quantity-desc">
-            <h3>Quantity: </h3>
+          <div className="quantity">
+            <h3>Quantity:</h3>
+
             <p className="quantity-desc">
-              <span className="minus">1</span>
+              <span className="minus">
+                <AiOutlineMinus />
+              </span>
+
+              <span className="num">1</span>
+
               <span className="plus">
                 <AiOutlinePlus />
               </span>
             </p>
           </div>
-          <div className="sku"> SKU: {sku}</div>
+          <div className="sku">SKU: {sku}</div>
         </div>
       </div>
 
+      <div className="maylike-products-wrapper">
+        <h2>You may also like</h2>
 
-
+        <div className="marquee">
+          <div className="maylike-products-container track">
+            {products.map((item) => (
+              <Product key={item._id} product={item} />
+            ))}
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
-//    continue on step 7  
 
+export const getStaticPaths = async () => {
+  const query = `*[_type == "product"] {
+
+                            
+    slug {
+
+                            
+      current
+
+                            
+    }
+
+                            
+  }
+
+                            
+  `;
+
+  const products = await client.fetch(query);
+
+  const paths = products.map((product) => ({
+    params: {
+      slug: product.slug.current,
+    },
+  }));
+
+  return {
+    paths,
+
+    fallback: "blocking",
+  };
+};
+
+export const getStaticProps = async ({ params: { slug } }) => {
+  const query = `*[_type == "product" && slug.current == '${slug}'][0]`;
+
+  const productsQuery = '*[_type == "product"]';
+
+  const product = await client.fetch(query);
+
+  const products = await client.fetch(productsQuery);
+
+  return {
+    props: { products, product },
+  };
+};
+
+export default ProductDetails;

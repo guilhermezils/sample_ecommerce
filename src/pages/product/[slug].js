@@ -6,8 +6,11 @@ import {
   AiFillStar,
   AiOutlineStar,
 } from "react-icons/ai";
-import { client, urlFor } from "../../lib/client";
-import { Product } from "../..components";
+import { client, urlFor } from "../../../lib/client";
+import { Product } from "../../components";
+
+console.log("urlFor", urlFor);
+console.log("client", client);
 
 const ProductDetails = ({ product, products }) => {
   const { image, name, details, price, sku, ingredients, weight, delivery } =

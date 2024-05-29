@@ -9,8 +9,8 @@ import {
 import { client, urlFor } from "../../../lib/client";
 import { Product } from "../../components";
 
-console.log("urlFor", urlFor);
-console.log("client", client);
+// console.log("urlFor", urlFor);
+// console.log("client", client);
 
 const ProductDetails = ({ product, products }) => {
   const { image, name, details, price, sku, ingredients, weight, delivery } =
@@ -106,12 +106,7 @@ const ProductDetails = ({ product, products }) => {
 };
 
 export const getStaticPaths = async () => {
-  const query = `*[_type == "product"] {                          
-    slug {                     
-      current                      
-    }                        
-  }                         
-  `;
+  const query = `*[_type == "product"] {slug {current}}`;
 
   const products = await client.fetch(query);
 

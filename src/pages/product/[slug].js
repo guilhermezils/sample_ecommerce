@@ -25,6 +25,7 @@ const ProductDetails = ({ product, products }) => {
             <img
               src={urlFor(image && image[index])}
               className="product-detail-image"
+              alt={image && image[index]}
             />
           </div>
           <div className="small-images-container">
@@ -35,6 +36,7 @@ const ProductDetails = ({ product, products }) => {
                 className={
                   i === index ? "small-image selected-image" : "small-image"
                 }
+                alt={item}
                 onMouseEnter={() => setIndex(i)}
               />
             ))}
@@ -104,21 +106,11 @@ const ProductDetails = ({ product, products }) => {
 };
 
 export const getStaticPaths = async () => {
-  const query = `*[_type == "product"] {
-
-                            
-    slug {
-
-                            
-      current
-
-                            
-    }
-
-                            
-  }
-
-                            
+  const query = `*[_type == "product"] {                          
+    slug {                     
+      current                      
+    }                        
+  }                         
   `;
 
   const products = await client.fetch(query);

@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import newsletter from "public/images/newsletter.jpg";
+import newsletter from "../../public/images/newsletter.jpg";
 
 const Newsletter = () => (
   <div className="newsletter">

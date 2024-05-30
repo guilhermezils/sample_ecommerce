@@ -8,6 +8,7 @@ import {
 } from "react-icons/ai";
 import { client, urlFor } from "../../../lib/client";
 import { Product } from "../../components";
+import { Info} from "../../components";
 
 // console.log("urlFor", urlFor);
 // console.log("client", client);
@@ -91,6 +92,7 @@ const ProductDetails = ({ product, products }) => {
       </div>
 
       <div className="maylike-products-wrapper">
+        <Info ingredients={ingredients} weight={weight} delivery={delivery} />
         <h2>You may also like</h2>
 
         <div className="marquee">
